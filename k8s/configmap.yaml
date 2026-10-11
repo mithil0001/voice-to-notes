@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: voice-to-notes-config
+  labels:
+    app: voice-to-notes
+data:
+  AZURE_SPEECH_LANGUAGE: "en-US"
+  FLASK_DEBUG: "false"
+  PORT: "5000"

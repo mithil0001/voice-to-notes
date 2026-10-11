@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voice-to-Notes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <h1>Voice-to-Notes</h1>
+            <p>Record your voice, convert it to text with Azure AI Speech, and save it as a note.</p>
+        </header>
+
+        <section id="statusBanner" class="status-banner hidden" role="status"></section>
+
+        <section class="card recording-card">
+            <h2>1. Record</h2>
+            <div class="recording-controls">
+                <button id="recordBtn" class="btn btn-primary">Start Recording</button>
+                <button id="stopBtn" class="btn btn-secondary" disabled>Stop Recording</button>
+                <span id="recordingStatus" class="recording-status">Idle</span>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>2. Transcription</h2>
+            <textarea
+                id="transcriptionText"
+                placeholder="Your transcribed speech will appear here. You can edit it before saving."
+                rows="6"
+            ></textarea>
+        </section>
+
+        <section class="card">
+            <h2>3. Save as Note</h2>
+            <input id="noteTitle" type="text" placeholder="Note title" maxlength="120" />
+            <button id="saveNoteBtn" class="btn btn-primary">Save Note</button>
+        </section>
+
+        <section class="card">
+            <h2>Saved Notes</h2>
+            <div id="notesList" class="notes-list">
+                <p class="empty-state">No notes yet. Record something and save it!</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
